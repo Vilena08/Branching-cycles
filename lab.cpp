@@ -1,6 +1,6 @@
 /********************
 * Author:Saibuu V.M *
-* Date 03.10.2025   *
+* Date 09.10.2025   *
 * Option 15         *
 ********************/
 
@@ -11,8 +11,11 @@
 using namespace std;
 
 int main() {
-    
-  double l, k, R, phi;
+  int LenghtCount;
+  cout << "enter the number of lengths = ";
+  cin >> LenghtCount;
+  
+  double lengths, k, R, phi;
   double p, p1, h, F;
 
   p = 1.03;   
@@ -20,24 +23,26 @@ int main() {
   h = 0.85; 
   F = 16;    
   
-  for (int index = 0; index < 4; index++) {
-  cout << "lengths = "<< index << " = ";
-  cin >> l;
+  for (int lenghtIndex = 0; lenghtIndex <LenghtCount ; lenghtIndex++) {
+    cout << "lengths = "<< lenghtIndex << " = ";
+    cin >>lengths;
  
-  k = (l / h) - (sqrt(p / p1));
+  k = (lengths / h) - (sqrt(p / p1));
 
   if (k > 0) {
-    R = l * F * p1 * ((sqrt(p / p1)) - 1);
-    phi = acos(h / l * sqrt(p / p1));
+    R = lengths * F * p1 * ((sqrt(p / p1)) - 1.0);
+    phi = acos(h / lengths * sqrt(p / p1));
 
   } else {
-      R = l * F * p1 * ((h / l) * (p / p1) - 1);
-      phi = 0;
+    R = lengths * F * p1 * ((h / lengths) * (p / p1) - 1.0);
+    phi = 0;
 
   }
 
-  cout << fixed << setprecision(3)
-       << "l =  " << l 
+  const int outputprecision = 3;
+  
+  cout << fixed << setprecision(outputprecision)
+       << "lengths =  " << lengths
        << " k = " << k 
        << " R = " << R
        << " phi = " << phi
@@ -47,3 +52,4 @@ int main() {
 return 0;
 }
     
+
