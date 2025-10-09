@@ -11,9 +11,9 @@
 using namespace std;
 
 int main() {
-  int LenghtCount;
+  int lenghtCount;
   cout << "enter the number of lengths = ";
-  cin >> LenghtCount;
+  cin >> lenghtCount;
   
   double lengths, k, R, phi;
   double p, p1, h, F;
@@ -21,27 +21,27 @@ int main() {
   p = 1.03;   
   p1 = 0.68; 
   h = 0.85; 
-  F = 16;    
+  F = 16.0;    
   
-  for (int lenghtIndex = 0; lenghtIndex <LenghtCount ; lenghtIndex++) {
+  for (int lenghtIndex = 0; lenghtIndex <lenghtCount ; ++lenghtIndex) {
     cout << "lengths = "<< lenghtIndex << " = ";
-    cin >>lengths;
- 
-  k = (lengths / h) - (sqrt(p / p1));
+    cin >>lengths;  
+    
+    k = (lengths / h) - (sqrt(p / p1));
 
-  if (k > 0) {
-    R = lengths * F * p1 * ((sqrt(p / p1)) - 1.0);
-    phi = acos(h / lengths * sqrt(p / p1));
+    if (k > 0) {
+      R = lengths * F * p1 * ((sqrt(p / p1)) - 1.0);
+      phi = acos(h / lengths * sqrt(p / p1));
 
-  } else {
-    R = lengths * F * p1 * ((h / lengths) * (p / p1) - 1.0);
-    phi = 0;
+    } else {
+      R = lengths * F * p1 * ((h / lengths) * (p / p1) - 1.0);
+      phi = 0;
 
-  }
+    }
 
-  const int outputprecision = 3;
+  const int outPutPrecision = 3;
   
-  cout << fixed << setprecision(outputprecision)
+  cout << fixed << setprecision(outPutPrecision)
        << "lengths =  " << lengths
        << " k = " << k 
        << " R = " << R
